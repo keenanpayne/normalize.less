@@ -14,7 +14,7 @@
 @base-font-size: 16px;
 
 // The base line height determines the basic unit of vertical rhythm.
-@base-line-height 24px;
+@base-line-height: 24px;
 
 // Heading sizes
 @h1-size: 36px;
@@ -72,6 +72,7 @@ html {
     font-size: 100%; // 1 //
     .vendor(text-size-adjust, 100%); // 2 //
 }
+
 
 //
 // Remove default margin.
@@ -261,12 +262,8 @@ figure { margin: 1em 40px; }
 //
 
 hr {
-    border: solid #eee;
-    border-width: 1px 0 0;
-    clear: both;
-    height: 0;
-    
     .vendor(box-sizing, content-box);
+    height: 0;
 }
 
 
@@ -274,11 +271,7 @@ hr {
 // Contain overflow in all browsers.
 //
 
-pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
+pre { overflow: auto; }
 
 
 //
