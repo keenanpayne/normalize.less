@@ -1,0 +1,37 @@
+//
+// Passing in a single value will create font-sizing in 
+// pixels, rems as well as a proper line-height.
+// 
+//  `.font-size(24px, false);`
+// 
+// 
+.font-size(@font-size, @line-height: true) {
+  @px-value: (@font-size);
+  @rem-value: (@font-size / @base-font-size) * 1rem;
+  @line-height-value: ceil(@font-size / @base-line-height) * (@base-line-height / @font-size);
+
+  font-size: ~"@{px-value}";
+  font-size: @rem-value;
+
+  .line-height(@boolean) when (@boolean = true) {
+    line-height: unit(@line-height-value);
+  }
+
+  .line-height(@line-height);
+}
+
+
+// 
+// Proper vendor prefixes are created just by 
+// passing a property value and size value.
+// 
+//  `.vendor(border-radius, 4px);`
+// 
+// 
+.vendor(@property, @value) {
+  -webkit-@{property}: @value;
+  -moz-@{property}: @value;
+  -ms-@{property}: @value;
+  -o-@{property}: @value;
+  @{property}: @value;
+}

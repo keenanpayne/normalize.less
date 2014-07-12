@@ -27,22 +27,22 @@
 // Passing in a single value will create font-sizing in 
 // pixels, rems as well as a proper line-height.
 // 
-//    `.font-size(24px, false);`
+//  `.font-size(24px, false);`
 // 
 // 
 .font-size(@font-size, @line-height: true) {
-    @px-value: (@font-size);
-    @rem-value: (@font-size / @base-font-size) * 1rem;
-    @line-height-value: ceil(@font-size / @base-line-height) * (@base-line-height / @font-size);
+  @px-value: (@font-size);
+  @rem-value: (@font-size / @base-font-size) * 1rem;
+  @line-height-value: ceil(@font-size / @base-line-height) * (@base-line-height / @font-size);
 
-    font-size: ~"@{px-value}";
-    font-size: @rem-value;
+  font-size: ~"@{px-value}";
+  font-size: @rem-value;
 
-    .line-height(@boolean) when (@boolean = true) {
-        line-height: unit(@line-height-value);
-    }
+  .line-height(@boolean) when (@boolean = true) {
+    line-height: unit(@line-height-value);
+  }
 
-    .line-height(@line-height);
+  .line-height(@line-height);
 }
 
 
@@ -50,15 +50,15 @@
 // Proper vendor prefixes are created just by 
 // passing a property value and size value.
 // 
-//    `.vendor(border-radius, 4px);`
+//  `.vendor(border-radius, 4px);`
 // 
 // 
 .vendor(@property, @value) {
-    -webkit-@{property}: @value;
-    -moz-@{property}: @value;
-    -ms-@{property}: @value;
-    -o-@{property}: @value;
-    @{property}: @value;
+  -webkit-@{property}: @value;
+  -moz-@{property}: @value;
+  -ms-@{property}: @value;
+  -o-@{property}: @value;
+  @{property}: @value;
 }
 
 
@@ -69,8 +69,8 @@
 //
 
 html {
-    font-size: 100%; // 1 //
-    .vendor(text-size-adjust, 100%); // 2 //
+  font-size: 100%; // 1 //
+  .vendor(text-size-adjust, 100%); // 2 //
 }
 
 
@@ -113,8 +113,8 @@ audio,
 canvas, 
 progress, 
 video {
-    display: inline-block; // 1 //
-    vertical-align: baseline; // 2 //
+  display: inline-block; // 1 //
+  vertical-align: baseline; // 2 //
 }
 
 
@@ -124,8 +124,8 @@ video {
 //
 
 audio:not([controls]) {
-    display: none;
-    height: 0;
+  display: none;
+  height: 0;
 }
 
 
@@ -146,17 +146,17 @@ template { display: none; }
 //
 
 a {
-    background: transparent;
+  background: transparent;
 
-      
-    //
-    // Improve readability when focused and also mouse hovered in all browsers.
-    //
     
-    &:focus { outline: thin dotted; }
-    
-    &:active, 
-    &:hover { outline: 0; }
+  //
+  // Improve readability when focused and also mouse hovered in all browsers.
+  //
+  
+  &:focus { outline: thin dotted; }
+  
+  &:active, 
+  &:hover { outline: 0; }
 }
 
 
@@ -201,8 +201,8 @@ h1 {
 //
 
 mark {
-    background: #ff0;
-    color: #000;
+  background: #ff0;
+  color: #000;
 }
 
 
@@ -219,10 +219,10 @@ small { font-size: 80%; }
 
 sub,
 sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 sup { top: -0.5em; }
@@ -262,8 +262,8 @@ figure { margin: 1em 40px; }
 //
 
 hr {
-    .vendor(box-sizing, content-box);
-    height: 0;
+  .vendor(box-sizing, content-box);
+  height: 0;
 }
 
 
@@ -282,8 +282,8 @@ code,
 kbd, 
 pre, 
 samp {
-    font-family: monospace, monospace;
-    .font-size(@base-font-size);
+  font-family: monospace, monospace;
+  .font-size(@base-font-size);
 }
 
 
@@ -308,9 +308,9 @@ input,
 optgroup, 
 select, 
 textarea {
-    color: inherit; // 1 //
-    font: inherit; // 1 //
-    margin: 0; // 1 //
+  color: inherit; // 1 //
+  font: inherit; // 1 //
+  margin: 0; // 1 //
 }
 
 
@@ -344,8 +344,8 @@ button,
 html input[type="button"], // 1 //
 input[type="reset"],
 input[type="submit"] {
-    -webkit-appearance: button; // 2 //
-    cursor: pointer; // 3 //
+  -webkit-appearance: button; // 2 //
+  cursor: pointer; // 3 //
 }
 
 
@@ -363,8 +363,8 @@ html input[disabled] { cursor: default; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
-    border: 0;
-    padding: 0;
+  border: 0;
+  padding: 0;
 }
 
 
@@ -374,56 +374,56 @@ input::-moz-focus-inner {
 //
 
 input {
-    line-height: normal;
-      
-  
-    //
-    // It's recommended that you don't attempt to style these elements.
-    // Firefox's implementation doesn't respect box-sizing, padding, or width.
-    //
-    // 1. Address box sizing set to `content-box` in IE 8/9/10.
-    // 2. Remove excess padding in IE 8/9/10.
-    //
-  
-    &[type="checkbox"], 
-    &[type="radio"] {
-        box-sizing: border-box; // 1 //
-        padding: 0; // 2 //
-    }
-      
-  
-    //
-    // Fix the cursor style for Chrome's increment/decrement buttons. For certain
-    // `font-size` values of the `input`, it causes the cursor style of the
-    // decrement button to change from `default` to `text`.
-    //
-  
-    &[type="number"] {
-        &::-webkit-inner-spin-button, 
-        &::-webkit-outer-spin-button { height: auto; }
-    }
-      
-  
-    //
-    // 1. Address `appearance` set to `searchfield` in Safari and Chrome.
-    // 2. Address `box-sizing` set to `border-box` in Safari and Chrome
-    //  (include `-moz` to future-proof).
-    //
-  
-    &[type="search"] {
-        -webkit-appearance: textfield; // 1 //    
-        .vendor(box-sizing, content-box); // 2 //
+  line-height: normal;
     
+  
+  //
+  // It's recommended that you don't attempt to style these elements.
+  // Firefox's implementation doesn't respect box-sizing, padding, or width.
+  //
+  // 1. Address box sizing set to `content-box` in IE 8/9/10.
+  // 2. Remove excess padding in IE 8/9/10.
+  //
+  
+  &[type="checkbox"], 
+  &[type="radio"] {
+    box-sizing: border-box; // 1 //
+    padding: 0; // 2 //
+  }
     
-        //
-        // Remove inner padding and search cancel button in Safari and Chrome on OS X.
-        // Safari (but not Chrome) clips the cancel button when the search input has
-        // padding (and `textfield` appearance).
-        //
+  
+  //
+  // Fix the cursor style for Chrome's increment/decrement buttons. For certain
+  // `font-size` values of the `input`, it causes the cursor style of the
+  // decrement button to change from `default` to `text`.
+  //
+  
+  &[type="number"] {
+    &::-webkit-inner-spin-button, 
+    &::-webkit-outer-spin-button { height: auto; }
+  }
     
-        &::-webkit-search-cancel-button, 
-        &::-webkit-search-decoration { -webkit-appearance: none; }
-    }
+  
+  //
+  // 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+  // 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+  //  (include `-moz` to future-proof).
+  //
+  
+  &[type="search"] {
+    -webkit-appearance: textfield; // 1 //  
+    .vendor(box-sizing, content-box); // 2 //
+  
+  
+    //
+    // Remove inner padding and search cancel button in Safari and Chrome on OS X.
+    // Safari (but not Chrome) clips the cancel button when the search input has
+    // padding (and `textfield` appearance).
+    //
+  
+    &::-webkit-search-cancel-button, 
+    &::-webkit-search-decoration { -webkit-appearance: none; }
+  }
 }
 
 
@@ -432,9 +432,9 @@ input {
 //
 
 fieldset {
-    border: 1px solid #c0c0c0;
-    margin: 0 2px;
-    padding: 0.35em 0.625em 0.75em;
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
 }
 
 
@@ -444,8 +444,8 @@ fieldset {
 //
 
 legend {
-    border: 0; // 1 //
-    padding: 0; // 2 //
+  border: 0; // 1 //
+  padding: 0; // 2 //
 }
 
 
@@ -472,8 +472,8 @@ optgroup { font-weight: bold; }
 //
 
 table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 td, 
