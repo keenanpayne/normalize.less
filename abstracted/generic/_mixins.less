@@ -4,7 +4,7 @@
 // 
 //  `.font-size(24px, false);`
 // 
-// 
+
 .font-size(@font-size, @line-height: true) {
   @px-value: (@font-size);
   @rem-value: (@font-size / @base-font-size) * 1rem;
@@ -18,20 +18,4 @@
   }
 
   .line-height(@line-height);
-}
-
-
-// 
-// Proper vendor prefixes are created just by 
-// passing a property value and size value.
-// 
-//  `.vendor(border-radius, 4px);`
-// 
-// 
-.vendor(@property, @value) {
-  -webkit-@{property}: @value;
-  -moz-@{property}: @value;
-  -ms-@{property}: @value;
-  -o-@{property}: @value;
-  @{property}: @value;
 }
